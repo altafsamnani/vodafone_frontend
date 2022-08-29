@@ -7,6 +7,7 @@ The project is created with
 - Docker
 - Artisan Commands
 - Phpunit Testcases
+- Socialite provider to talk with Keycloak
 
 ## Installation
 
@@ -14,9 +15,15 @@ The project is created with
 
 2. Execute ```make up```, which will create the setup for the assignment and installation for you, If you are setting it up first time, please be patient and it will take some time. For Subsequent sail commands it will be quicker.
 
-5. We are using ```socialite provider``` functionality, and our portal will be running on ```http://localhost:81/keycloak/test```
+5. We are using ```socialite provider``` functionality, and our keycloak will be running ```http://localhost:81/keycloak/test```
 
-6. We have created a Test page at ```http://localhost:81/keycloak/test ```to authenticate with Keycloak at ```localhost:85/auth``` 
+6. We have created a Test page at ```http://localhost:81/keycloak/test ``` to authenticate with Keycloak at ```localhost:85/auth``` 
+
+7. Steps to process
+   - Open in browser ```http://localhost:81/keycloak/test```
+   - Will redirect user to ```localhost:85/auth``` for authentication
+   - User will be redirected back with the token
+   - Use this token for the endpoints for vodafone_backend
 
 
 ## Explaination
