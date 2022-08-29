@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  frontphp:
+    build:
+      context: .docker/php
+      dockerfile: dockerfile
+    container_name: ${APP_NAME:?err}-php
+    volumes:
+      - './:/var/www'
+      - .docker/php/php.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - app-network
+  frontnginx:
+    image: nginx:latest
+    container_name: ${APP_NAME:?err}-nginx
+    ports:
+      - '81:80'
+      - '444:443'
+    links:
+      - frontphp
+    volumes:
+      - './:/var/www'
+      - '.docker/nginx:/etc/nginx/conf.d'
+    networks:
+      - app-network
+networks:
+    app-network:
+        name: app-network
+        driver: bridge
