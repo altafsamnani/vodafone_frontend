@@ -7,7 +7,7 @@ The project is created with
 - Docker
 - Artisan Commands
 - Phpunit Testcases
-- Socialite provider to talk with Keycloak
+- Socialite provider to connect with Keycloak Openid
 
 ## Installation
 
