@@ -78,13 +78,9 @@ class OAuthTokenController extends Controller
 
     public function redirect(): RedirectResponse
     {
-        $user = Socialite::driver('keycloak')->user();
-        dd($user);
-
         try {
             $redirectUrl = $this->oAuthService->getRedirectUrl();
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
             $this->logger->error($exception->getMessage());
             $redirectUrl = $this->oAuthService->getSessionVariable('vodafone_url');
         }

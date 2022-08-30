@@ -13,7 +13,7 @@
         <div class="p-2">
             <form action="{{ $url }}" method="get">
                 <header class="row">
-                    <h2>The simulated instance will call this-server/microsoft with the inputs as request parameter</h2>
+                    <h2>The simulated instance will call this-server with the inputs as request parameter</h2>
                     <label for="vodafone_url"><code>vodafone_url</code></label>
                     <input name="vodafone_url" value="{{ $vodafoneCustomer }}">
                     <label for="scope"><code>scope</code></label>

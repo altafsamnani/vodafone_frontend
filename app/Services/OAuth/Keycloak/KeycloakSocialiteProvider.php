@@ -68,9 +68,28 @@ class KeycloakSocialiteProvider extends Provider
             ->setExpiresIn($this->parseExpiresIn($response));
     }
 
-    protected function getBaseUrl()
+    protected function getTokenUrl()
     {
-        return rtrim(rtrim('http://localhost:85/auth', '/').'/realms/'.$this->getConfig('realms', 'master'), '/');
+        return $this->getInternalBaseurl().'/protocol/openid-connect/token';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getUserByToken($token)
+    {
+        $response = $this->getHttpClient()->get($this->getInternalBaseurl().'/protocol/openid-connect/userinfo', [
+            RequestOptions::HEADERS => [
+                'Authorization' => 'Bearer '.$token,
+            ],
+        ]);
+
+        return json_decode((string) $response->getBody(), true);
+    }
+
+    private function getInternalBaseurl()
+    {
+        return rtrim('http://host.docker.internal:85/auth/realms/'.$this->getConfig('realms', 'master'), '/');
     }
 
     private function getRevokeUrl(): string

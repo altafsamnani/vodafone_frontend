@@ -5,8 +5,12 @@
 The project is created with
 - Laravel
 - Docker
+- Keycloak Guard to check Resource and allow access
 - Artisan Commands
 - Phpunit Testcases
+
+
+<img src="https://raw.githubusercontent.com/robsontenorio/laravel-keycloak-guard/master/flow.png"/>
 
 ## Installation
 
