@@ -22,7 +22,7 @@ class KeycloakFrontController
             'revokeUrl' => '/keycloak/revoke',
             'getTokenUrl' => '/keycloak/token',
             'vodafoneCustomer' => 'http://localhost/oauth/keycloak/token/1?exchange_verifier_challenge=' . self::EXCHANGE_VERIFIER . '&vodafone_session=' . self::XSESSION,
-            'scope' => 'openid profile email microprofile-jwt roles',
+            'scope' => 'openid profile email vf_test',
             'refreshToken' => '',
             'accessToken' => '',
             'exchangeVerifier' => self::EXCHANGE_VERIFIER,
